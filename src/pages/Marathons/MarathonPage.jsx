@@ -6,7 +6,7 @@ import MarathonPageCard from './MarathonPageCard';
 const MarathonPage = () => {
     const [marathons, setMarathons] = useState([]);
     const axiosSecure = UseAxiosSecure();
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
     const [sortOrder, setSortOrder] = useState('newest');
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 6;
@@ -17,10 +17,10 @@ const MarathonPage = () => {
             try {
                 const response = await axiosSecure.get("/allMarathons");
                 setMarathons(response.data);
-                setLoading(false);
+                // setLoading(false);
             } catch (error) {
                 console.error('Error fetching marathons:', error);
-                setLoading(false);
+                // setLoading(false);
             }
         };
         fetchMarathons();
@@ -51,13 +51,13 @@ const MarathonPage = () => {
     };
 
     // Loading state
-    if (loading) {
-        return (
-            <div className="flex justify-center items-center min-h-screen">
-                <span className="loading loading-bars loading-lg"></span>
-            </div>
-        );
-    }
+    // if (loading) {
+    //     return (
+    //         <div className="flex justify-center items-center min-h-screen">
+    //             <span className="loading loading-bars loading-lg"></span>
+    //         </div>
+    //     );
+    // }
 
     return (
         <div className="px-4 mt-10 mb-20 container mx-auto min-h-80">
