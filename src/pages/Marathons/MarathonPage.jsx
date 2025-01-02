@@ -15,9 +15,7 @@ const MarathonPage = () => {
     useEffect(() => {
         const fetchMarathons = async () => {
             try {
-                const response = await axiosSecure.get('/allMarathons', {
-                    withCredentials: true,
-                });
+                const response = await axiosSecure.get("/allMarathons");
                 setMarathons(response.data);
                 setLoading(false);
             } catch (error) {
