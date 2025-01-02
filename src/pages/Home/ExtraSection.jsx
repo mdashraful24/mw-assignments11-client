@@ -52,10 +52,10 @@ const ExtraSection = () => {
                                     <IoTriangle
                                         className={`mr-2 text-[#591a6a] transform transition-transform duration-200 ${expandedIndex === index ? 'rotate-180' : 'rotate-90'}`}
                                     />
-                                    <span className="text-xl">{faq.question}</span>
+                                    <span className="md:text-xl">{faq.question}</span>
                                 </button>
                                 {expandedIndex === index && (
-                                    <div className="ml-6 mt-2 text-lg">
+                                    <div className="ml-6 mt-2 text-md:lg">
                                         {faq.answer}
                                     </div>
                                 )}

@@ -61,7 +61,7 @@ const Navbar = () => {
                         <div
                             tabIndex={0}
                             role="button"
-                            className="btn btn-ghost lg:hidden"
+                            className="btn btn-ghost lg:hidden px-2 md:px-4"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -90,8 +90,8 @@ const Navbar = () => {
                             href="/"
                             className="md:text-2xl font-bold flex items-center gap-2"
                         >
-                            <img src={siteLogo} alt="siteLogo" className="w-12" />
-                            <p className="hidden md:block">RaceTrackers</p>
+                            <img src={siteLogo} alt="siteLogo" className="w-10 md:w-12 hidden md:block" />
+                            <p className="text-xl md:text-2xl lg:text-3xl">RaceTrackers</p>
                         </a>
                     </div>
                 </div>
@@ -104,7 +104,7 @@ const Navbar = () => {
                     {user ? (
                         <div className="relative dropdown-container">
                             <img
-                                className="rounded-full w-11 h-11 object-cover cursor-pointer p-1 hover:bg-gray-300"
+                                className="rounded-full w-9 md:w-11 h-9 md:h-11 object-cover cursor-pointer p-1 hover:bg-gray-300"
                                 src={user?.photoURL || "https://via.placeholder.com/40"}
                                 alt="User profile"
                                 onClick={toggleDropdown}

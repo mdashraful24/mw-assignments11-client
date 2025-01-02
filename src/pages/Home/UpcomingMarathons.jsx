@@ -5,51 +5,51 @@ const UpcomingMarathons = () => {
         {
             id: 1,
             title: "City Marathon 2025",
-            date: "Jan 15, 2025",
+            date: "Apr 15, 2025",
             location: "New York, USA",
         },
         {
             id: 2,
             title: "Spring Run 2025",
-            date: "Mar 10, 2025",
+            date: "May 10, 2025",
             location: "London, UK",
         },
         {
             id: 3,
             title: "Desert Dash 2025",
-            date: "Feb 22, 2025",
+            date: "Jun 22, 2025",
             location: "Dubai, UAE",
         },
         {
             id: 4,
             title: "Beachside Sprint",
-            date: "Apr 5, 2025",
+            date: "Jul 5, 2025",
             location: "Sydney, Australia",
         },
         {
             id: 5,
             title: "Mountain Trek Marathon",
-            date: "May 20, 2025",
+            date: "Aug 20, 2025",
             location: "Kathmandu, Nepal",
         },
         {
             id: 6,
             title: "Night Glow Run",
-            date: "Jun 15, 2025",
+            date: "Sep 15, 2025",
             location: "Tokyo, Japan",
         },
     ];
 
     return (
         <section className="py-10">
-            <div className="container mx-auto px-5">
+            <div className="container mx-auto px-4">
                 <h2 className="text-base font-bold text-center text-purple-700 mb-3">
                     Events
                 </h2>
-                <h2 className="text-2xl md:text-5xl font-extrabold text-center text-purple-800 mb-5">
+                <h2 className="text-3xl md:text-5xl font-extrabold text-center text-purple-800 mb-5">
                     Upcoming Marathons Events
                 </h2>
-                <div className="mb-16 h-1 w-36 bg-[#591a6a] mx-auto"></div>
+                <div className="mb-12 md:mb-16 h-1 w-36 bg-[#591a6a] mx-auto"></div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {marathons.map((marathon) => (
                         <div

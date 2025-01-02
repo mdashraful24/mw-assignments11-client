@@ -46,7 +46,7 @@ const Team = () => {
                 <h2 className="text-base font-bold text-center text-purple-700 mb-3">
                     Meet the Team
                 </h2>
-                <h2 className="text-2xl md:text-5xl font-extrabold text-center text-purple-800 mb-7">
+                <h2 className="text-3xl md:text-5xl font-extrabold text-center text-purple-800 mb-7">
                     Our Expert Coaches
                 </h2>
                 <div className="mb-16 h-1 w-36 bg-[#591a6a] mx-auto"></div>
@@ -66,7 +66,7 @@ const Team = () => {
                                     <img
                                         src={member.image}
                                         alt={member.name}
-                                        className="w-full h-[500px] object-cover transition-transform duration-500 group-hover:scale-110"
+                                        className="w-full h-[400px] lg:h-[500px] object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
                                 </div>
 

@@ -91,12 +91,12 @@ const MarathonsDetails = () => {
     }
 
     return (
-        <div className="container mx-auto mb-20 mt-10 px-3">
+        <div className="container mx-auto mb-20 mt-10 px-4">
             <Helmet>
                 <title>Marathon Details | RaceTrackers</title>
             </Helmet>
 
-            <h2 className="text-2xl md:text-4xl font-bold text-center text-purple-800 mb-3">Marathon Details</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-center text-purple-800 mb-5 md:mb-7">Marathon Details</h2>
             <div className="mb-10 md:mb-14 h-1 w-36 bg-[#591a6a] mx-auto"></div>
 
             {/* Header Section */}

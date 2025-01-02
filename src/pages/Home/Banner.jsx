@@ -6,7 +6,7 @@ import image3 from '../../../src/assets/slide3.jpg'
 
 const Banner = () => {
     return (
-        <div className="container mx-auto mt-12 md:mt-16 px-5">
+        <div className="container mx-auto mt-12 md:mt-16 mb-14 px-4">
             <Carousel
                 infiniteLoop
                 useKeyboardArrows

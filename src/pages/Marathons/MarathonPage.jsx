@@ -1,51 +1,65 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
-import { IoLocationSharp } from 'react-icons/io5';
 import UseAxiosSecure from '../../hooks/UseAxiosSecure';
+import MarathonPageCard from './MarathonPageCard';
 
 const MarathonPage = () => {
     const [marathons, setMarathons] = useState([]);
-    const [sortOrder, setSortOrder] = useState('desc');
     const axiosSecure = UseAxiosSecure();
-    // const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
+    const [sortOrder, setSortOrder] = useState('newest');
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 6;
 
-    // Get data
+    // Fetch data
     useEffect(() => {
         const fetchMarathons = async () => {
             try {
-                // const response = await axiosSecure.get(`/marathonPage`, {
-                //     params: { sortOrder },
-                //     withCredentials: true,
-                // });
-                const response = await axiosSecure.get(`/marathonPage`, {
-                    params: { sortOrder },
+                const response = await axiosSecure.get('/allMarathons', {
                     withCredentials: true,
                 });
-
                 setMarathons(response.data);
-                // setLoading(false);
+                setLoading(false);
             } catch (error) {
                 console.error('Error fetching marathons:', error);
-                // setLoading(false);
+                setLoading(false);
             }
         };
         fetchMarathons();
-    }, [sortOrder]);
+    }, []);
 
-    const handleSortChange = (e) => {
-        setSortOrder(e.target.value);
-        // setLoading(false);
+    // Sort marathons based on the selected sorting order
+    const sortedMarathons = [...marathons].sort((a, b) => {
+        if (sortOrder === 'newest') {
+            return new Date(b.createdAt) - new Date(a.createdAt);
+        } else {
+            return new Date(a.createdAt) - new Date(b.createdAt);
+        }
+    });
+
+    // Calculate pagination
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentMarathons = sortedMarathons.slice(indexOfFirstItem, indexOfLastItem);
+
+    const totalPages = Math.ceil(sortedMarathons.length / itemsPerPage);
+
+    const handlePreviousPage = () => {
+        setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
     };
 
-    // Useful loading
-    // if (loading) {
-    //     return (
-    //         <div className="flex justify-center items-center min-h-screen">
-    //             <span className="loading loading-bars loading-lg"></span>
-    //         </div>
-    //     );
-    // }
+    const handleNextPage = () => {
+        setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+    };
+
+    // Loading state
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center min-h-screen">
+                <span className="loading loading-bars loading-lg"></span>
+            </div>
+        );
+    }
 
     return (
         <div className="px-4 mt-10 mb-20 container mx-auto min-h-80">
@@ -54,50 +68,53 @@ const MarathonPage = () => {
             </Helmet>
 
             {/* Title */}
-            <h2 className="text-2xl md:text-4xl font-bold text-center text-purple-800 mb-3">All Marathons Events</h2>
-            <div className="mb-8 md:mb-14 h-1 w-36 bg-[#591a6a] mx-auto"></div>
+            <h2 className="text-3xl md:text-5xl font-bold text-center text-purple-800 mb-5 md:mb-7">All Marathon Events</h2>
+            <div className="mb-10 md:mb-14 h-1 w-36 bg-[#591a6a] mx-auto"></div>
 
-            {/* Sorting dropdown */}
-            <div className="mb-16 text-center">
-                <label htmlFor="sortOrder" className="mr-2 font-semibold">Sort by:</label>
-                <select
-                    id="sortOrder"
-                    value={sortOrder}
-                    onChange={handleSortChange}
-                    className="p-2 border rounded-lg"
+            {/* Sort Options */}
+            <div className="flex justify-end mb-6">
+                <button
+                    onClick={() => setSortOrder('newest')}
+                    className={`btn ${sortOrder === 'newest' ? 'bg-purple-700 text-white' : ''} mr-2`}
                 >
-                    <option value="desc">Newest to Oldest</option>
-                    <option value="asc">Oldest to Newest</option>
-                </select>
+                    Newest
+                </button>
+                <button
+                    onClick={() => setSortOrder('oldest')}
+                    className={`btn ${sortOrder === 'oldest' ? 'bg-purple-700 text-white' : ''}`}
+                >
+                    Oldest
+                </button>
             </div>
 
             {/* Marathon Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {marathons.length === 0 ? (
+                {currentMarathons.length === 0 ? (
                     <p className="col-span-3 text-center text-lg">No marathons available</p>
                 ) : (
-                    marathons.map((marathon) => (
-                        <div key={marathon._id} className="card card-compact shadow-xl transition-transform duration-500 hover:-translate-y-2 group">
-                            <img src={marathon.marathonImage} alt={marathon.title} className="w-full md:h-[250px] lg:h-[300px] rounded-2xl p-2" />
-                            <div className="p-4 flex flex-col">
-                                <h3 className="text-xl font-semibold mb-2">{marathon.title}</h3>
-                                <div className='flex items-center gap-1 mb-2'>
-                                    <span className='text-blue-600 text-lg'><IoLocationSharp /></span>
-                                    <p>{marathon.location}</p>
-                                </div>
-                                <p>
-                                    Registration: {new Date(marathon.startRegistrationDate).toLocaleDateString()} to {new Date(marathon.endRegistrationDate).toLocaleDateString()}
-                                </p>
-                                <Link
-                                    to={`/marathons/${marathon._id}`}
-                                    className="btn mt-3 ml-auto shadow-md transition-colors duration-300 text-black group-hover:bg-purple-700 group-hover:text-white"
-                                >
-                                    See Details
-                                </Link>
-                            </div>
-                        </div>
+                    currentMarathons.map((marathon) => (
+                        <MarathonPageCard key={marathon._id} marathon={marathon} />
                     ))
                 )}
+            </div>
+
+            {/* Pagination Controls */}
+            <div className="flex justify-center mt-12 font-semibold">
+                <button
+                    onClick={handlePreviousPage}
+                    className={`btn  font-semibold ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    disabled={currentPage === 1}
+                >
+                    Previous
+                </button>
+                <span className="mx-4 flex items-center">{`Page ${currentPage} of ${totalPages}`}</span>
+                <button
+                    onClick={handleNextPage}
+                    className={`btn font-semibold ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    disabled={currentPage === totalPages}
+                >
+                    Next
+                </button>
             </div>
         </div>
     );
