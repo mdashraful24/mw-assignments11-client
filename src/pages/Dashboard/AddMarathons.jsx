@@ -64,7 +64,7 @@ const AddMarathons = () => {
         }
 
         // Post to Server
-        // fetch("http://localhost:5000/addMarathons", {
+        // fetch("https://mw-assignments11-server.vercel.app/addMarathons", {
         //     method: "POST",
         //     headers: {
         //         "Content-Type": "application/json",
@@ -83,7 +83,7 @@ const AddMarathons = () => {
         //         }
         //     });
 
-        fetch("http://localhost:5000/addMarathons", {
+        fetch("https://mw-assignments11-server.vercel.app/addMarathons", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

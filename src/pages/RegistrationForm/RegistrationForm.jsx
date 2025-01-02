@@ -73,7 +73,7 @@ const RegistrationForm = () => {
         };
 
         // Send registration data to the server
-        fetch("http://localhost:5000/registrations", {
+        fetch("https://mw-assignments11-server.vercel.app/registrations", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -257,7 +257,7 @@ export default RegistrationForm;
 //             return;
 //         }
 
-//         fetch("http://localhost:5000/registrations", {
+//         fetch("https://mw-assignments11-server.vercel.app/registrations", {
 //             method: "POST",
 //             headers: {
 //                 "Content-Type": "application/json",
