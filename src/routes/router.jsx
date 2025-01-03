@@ -38,10 +38,10 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><MarathonPage></MarathonPage></PrivateRoute>
             },
             {
-                path: "marathons/:id",
+                path: "marathonDetails/:id",
                 element: <PrivateRoute><MarathonsDetails></MarathonsDetails></PrivateRoute>,
                 loader: ({ params }) =>
-                    fetch(`https://mw-assignments11-server.vercel.app/marathons/${params.id}`, {
+                    fetch(`https://mw-assignments11-server.vercel.app/allMarathons/${params.id}`, {
                         method: 'GET',
                         credentials: 'include',
                     })
@@ -49,7 +49,11 @@ const router = createBrowserRouter([
             // {
             //     path: "marathons/:id",
             //     element: <PrivateRoute><MarathonsDetails></MarathonsDetails></PrivateRoute>,
-            //     loader: ({ params }) => fetch(`https://mw-assignments11-server.vercel.app/marathons/${params.id}`)
+            //     loader: ({ params }) =>
+            //         fetch(`https://mw-assignments11-server.vercel.app/marathons/${params.id}`, {
+            //             method: 'GET',
+            //             credentials: 'include',
+            //         })
             // },
             {
                 path: "registrationForm/:id",

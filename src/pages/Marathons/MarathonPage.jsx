@@ -6,26 +6,44 @@ import MarathonPageCard from './MarathonPageCard';
 const MarathonPage = () => {
     const [marathons, setMarathons] = useState([]);
     const axiosSecure = UseAxiosSecure();
-    // const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [sortOrder, setSortOrder] = useState('newest');
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 6;
 
-    // Fetch data
+    // Fetch data using Promises
     useEffect(() => {
-        const fetchMarathons = async () => {
-            try {
-                const response = await axiosSecure.get("/allMarathons");
+        axiosSecure
+            .get("/allMarathons")
+            .then((response) => {
                 setMarathons(response.data);
-                // setLoading(false);
-            } catch (error) {
+                setLoading(false);
+            })
+            .catch((error) => {
                 console.error('Error fetching marathons:', error);
-                // setLoading(false);
-            }
-        };
-        fetchMarathons();
+                setLoading(false);
+            });
     }, []);
 
+
+
+
+    // useEffect(() => {
+    //     const fetchMarathons = async () => {
+    //         try {
+    //             const response = await axiosSecure.get("/allMarathons");
+    //             setMarathons(response.data);
+    //             // setLoading(false);
+    //         } catch (error) {
+    //             console.error('Error fetching marathons:', error);
+    //             // setLoading(false);
+    //         }
+    //     };
+    //     fetchMarathons();
+    // }, []);    
+
+    
+    
     // Sort marathons based on the selected sorting order
     const sortedMarathons = [...marathons].sort((a, b) => {
         if (sortOrder === 'newest') {
@@ -51,18 +69,18 @@ const MarathonPage = () => {
     };
 
     // Loading state
-    // if (loading) {
-    //     return (
-    //         <div className="flex justify-center items-center min-h-screen">
-    //             <span className="loading loading-bars loading-lg"></span>
-    //         </div>
-    //     );
-    // }
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center min-h-screen">
+                <span className="loading loading-bars loading-lg"></span>
+            </div>
+        );
+    }
 
     return (
         <div className="px-4 mt-10 mb-20 container mx-auto min-h-80">
             <Helmet>
-                <title>Marathons | CrowdCube</title>
+                <title>Marathons | RaceTrackers</title>
             </Helmet>
 
             {/* Title */}

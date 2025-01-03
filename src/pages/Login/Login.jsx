@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../providers/AuthProvider";
-// import axios from "axios";
 
 const Login = () => {
     const { userLogin, setUser, handleGoogleSignIn } = useContext(AuthContext);
@@ -37,14 +36,6 @@ const Login = () => {
         userLogin(email, password)
             .then(result => {
                 const user = result.user;
-
-                // const user = { email: email }
-                // axios.post('https://mw-assignments11-server.vercel.app/jwt', user, {
-                //     withCredentials: true
-                // })
-                //     .then(res => {
-                //         // console.log(res.data);
-                //     })
 
                 setUser(user);
                 toast.success("Login Successfully!");

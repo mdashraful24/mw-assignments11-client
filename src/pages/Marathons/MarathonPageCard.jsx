@@ -23,7 +23,7 @@ const MarathonPageCard = ({ marathon }) => {
                     {new Date(marathon.endRegistrationDate).toLocaleDateString()}
                 </p>
                 <Link
-                    to={`/marathons/${marathon._id}`}
+                    to={`/marathonDetails/${marathon._id}`}
                     className="btn mt-3 ml-auto shadow-md transition-colors duration-300 text-black group-hover:bg-purple-700 group-hover:text-white"
                 >
                     See Details

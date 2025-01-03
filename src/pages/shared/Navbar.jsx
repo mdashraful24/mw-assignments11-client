@@ -61,7 +61,7 @@ const Navbar = () => {
                         <div
                             tabIndex={0}
                             role="button"
-                            className="btn btn-ghost lg:hidden px-2 md:px-4"
+                            className="btn btn-ghost lg:hidden pl-2"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +99,7 @@ const Navbar = () => {
                 {/* Right: Auth Links */}
                 <div className="navbar-end">
                     <div className="navbar-end hidden lg:flex">
-                        <ul className="menu menu-horizontal gap-2 px-3">{links}</ul>
+                        <ul className="menu menu-horizontal gap-2">{links}</ul>
                     </div>
                     {user ? (
                         <div className="relative dropdown-container">
@@ -114,7 +114,7 @@ const Navbar = () => {
                                     <ul>
                                         <li>
                                             <button
-                                                className="block w-full py-2 rounded-lg bg-zinc-700 font-semibold text-white hover:bg-[#2d0c36]"
+                                                className="block w-full py-2 rounded-md bg-zinc-800 font-semibold text-white hover:bg-red-700"
                                                 onClick={handleSignOut}
                                             >
                                                 Logout
@@ -125,7 +125,7 @@ const Navbar = () => {
                             )}
                         </div>
                     ) : (
-                        <div className="flex space-x-3">
+                        <div className="flex space-x-2">
                             <Link
                                 to="/login"
                                 className="btn btn-sm"
@@ -141,7 +141,7 @@ const Navbar = () => {
                         </div>
                     )}
                 </div>
-                <div className="pl-4 pr-2 md:pl-5">
+                <div className="pl-3 pr-2 md:pl-3">
                     <DarkLightTheme></DarkLightTheme>
                 </div>
             </div>
