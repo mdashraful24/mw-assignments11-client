@@ -8,7 +8,7 @@ const Team = () => {
             id: 1,
             name: "Eric Doe",
             role: "Coaches",
-            image: "https://i.ibb.co.com/YhkxPqd/coache3.png",
+            image: "https://i.ibb.co.com/PNWq8B5/coache1.png",
             social: {
                 facebook: "#",
                 instagram: "#",
@@ -19,7 +19,7 @@ const Team = () => {
             id: 2,
             name: "Jane Smith",
             role: "Fitness Trainer",
-            image: "https://i.ibb.co.com/Kq7QD04/coache2.png",
+            image: "https://i.ibb.co.com/YhkxPqd/coache3.png",
             social: {
                 facebook: "#",
                 instagram: "#",
@@ -28,9 +28,42 @@ const Team = () => {
         },
         {
             id: 3,
+            name: "Chris Evans",
+            role: "Marathon Coach",
+            image: "https://i.ibb.co.com/y086N1r/pexels-thisisengineering-3912953.jpg",
+            social: {
+                facebook: "#",
+                instagram: "#",
+                close: "#",
+            },
+        },
+        {
+            id: 4,
+            name: "Anna Brown",
+            role: "Nutrition Specialist",
+            image: "https://i.ibb.co.com/zfw9Jqr/attractive-sports-girl-personal-trainer-middle-modern-gym-with-workout-plan-her-hand.jpg",
+            social: {
+                facebook: "#",
+                instagram: "#",
+                close: "#",
+            },
+        },
+        {
+            id: 5,
             name: "Mike Johnson",
             role: "Yoga Instructor",
-            image: "https://i.ibb.co.com/PNWq8B5/coache1.png",
+            image: "https://i.ibb.co.com/Kq7QD04/coache2.png",
+            social: {
+                facebook: "#",
+                instagram: "#",
+                close: "#",
+            },
+        },
+        {
+            id: 6,
+            name: "John Carter",
+            role: "Pilates Instructor",
+            image: "https://i.ibb.co.com/TwNtvD4/young-handsome-man-sportswear-gym.jpg",
             social: {
                 facebook: "#",
                 instagram: "#",
@@ -47,7 +80,7 @@ const Team = () => {
                     Meet the Team
                 </h2>
                 <h2 className="text-3xl md:text-5xl font-extrabold text-center text-purple-800 mb-7">
-                    Our Expert Coaches
+                    Our Expert Members
                 </h2>
                 <div className="mb-16 h-1 w-36 bg-[#591a6a] mx-auto"></div>
 
@@ -60,13 +93,13 @@ const Team = () => {
                             triggerOnce={true}
                         >
                             <div className="relative rounded-lg shadow-lg overflow-hidden group">
-                                
+
                                 {/* Image Section with Zoom Effect */}
                                 <div className="overflow-hidden">
                                     <img
                                         src={member.image}
                                         alt={member.name}
-                                        className="w-full h-[400px] lg:h-[500px] object-cover transition-transform duration-500 group-hover:scale-110"
+                                        className="w-full h-[400px] lg:h-[500px] lg:object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
                                 </div>
 

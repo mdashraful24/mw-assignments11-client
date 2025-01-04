@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../providers/AuthProvider";
 import UseAxiosSecure from "../../hooks/UseAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const RegistrationForm = () => {
     // Get the marathon ID from the URL
@@ -118,6 +119,11 @@ const RegistrationForm = () => {
 
     return (
         <div className="container mx-auto px-4 mt-10 md:mt-14 mb-20">
+            {/* Helmet */}
+            <Helmet>
+                <title>Registration Form | RaceTrackers</title>
+            </Helmet>
+
             <div className="max-w-3xl mx-auto p-5 md:p-8 shadow-lg rounded-lg border">
                 <h2 className="text-3xl md:text-3xl font-bold text-center mb-6 md:mb-10">
                     Registration for "{title}"

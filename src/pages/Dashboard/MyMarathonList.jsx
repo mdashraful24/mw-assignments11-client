@@ -55,7 +55,7 @@ const MyMarathonList = () => {
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your campaign has been deleted.",
+                                text: "Your added marathon has been deleted.",
                                 icon: "success",
                             });
                             const remaining = myCampaigns.filter(myCam => myCam._id !== _id);

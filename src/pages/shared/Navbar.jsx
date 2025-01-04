@@ -87,22 +87,26 @@ const Navbar = () => {
                     </div>
                     <div className="flex items-center">
                         <a
-                            href="/"
                             className="md:text-2xl font-bold flex items-center gap-2"
                         >
                             <img src={siteLogo} alt="siteLogo" className="w-10 md:w-12 hidden md:block" />
-                            <p className="text-xl md:text-2xl lg:text-3xl">RaceTrackers</p>
+                            <p className="text-xl md:text-2xl lg:text-3xl cursor-default">RaceTrackers</p>
                         </a>
                     </div>
                 </div>
 
                 {/* Right: Auth Links */}
                 <div className="navbar-end">
-                    <div className="navbar-end hidden lg:flex">
+                    {/* <div className="navbar-end hidden lg:flex">
                         <ul className="menu menu-horizontal gap-2">{links}</ul>
+                    </div> */}
+
+                    {/* Updated */}
+                    <div className="hidden lg:flex">
+                        <ul className="menu menu-horizontal gap-4">{links}</ul>
                     </div>
                     {user ? (
-                        <div className="relative dropdown-container">
+                        <div className="relative dropdown-container pl-2 pr-2">
                             <img
                                 className="rounded-full w-9 md:w-11 h-9 md:h-11 object-cover cursor-pointer p-1 hover:bg-gray-300"
                                 src={user?.photoURL || "https://via.placeholder.com/40"}
@@ -125,16 +129,16 @@ const Navbar = () => {
                             )}
                         </div>
                     ) : (
-                        <div className="flex space-x-2">
+                        <div className="flex gap-4 pl-2">
                             <Link
                                 to="/login"
-                                className="btn btn-sm"
+                                    className="btn btn-sm bg-blue-500 text-white"
                             >
                                 Login
                             </Link>
                             <Link
                                 to="/register"
-                                className="btn btn-sm"
+                                    className="btn btn-sm bg-green-500 text-white"
                             >
                                 Register
                             </Link>

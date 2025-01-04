@@ -1,42 +1,67 @@
-import React, { useState } from "react";
+import React from "react";
+import { IoLocationSharp } from "react-icons/io5";
 
 const UpcomingMarathons = () => {
     const marathons = [
         {
             id: 1,
-            title: "City Marathon 2025",
-            date: "Apr 15, 2025",
+            title: "City Marathon",
+            description: "Join us for a thrilling run through the heart of New York City.",
+            registrationStart: "Mar 1, 2025",
+            registrationEnd: "Apr 31, 2025",
+            marathonDate: "May 15, 2025",
             location: "New York, USA",
+            image: "https://i.ibb.co.com/4V70T92/853881-1470.jpg"
         },
         {
             id: 2,
-            title: "Spring Run 2025",
-            date: "May 10, 2025",
+            title: "Spring Run",
+            description: "Experience the beauty of London in spring while you run.",
+            registrationStart: "Apr 1, 2025",
+            registrationEnd: "May 30, 2025",
+            marathonDate: "Jun 10, 2025",
             location: "London, UK",
+            image: "https://i.ibb.co.com/bPYG6W2/marathon-runners-running-a-race-scaled.jpg"
         },
         {
             id: 3,
-            title: "Desert Dash 2025",
-            date: "Jun 22, 2025",
+            title: "Desert Dash",
+            description: "Challenge yourself with an unforgettable dash through Dubai's deserts.",
+            registrationStart: "May 1, 2025",
+            registrationEnd: "Jun 31, 2025",
+            marathonDate: "Jul 22, 2025",
             location: "Dubai, UAE",
+            image: "https://i.ibb.co.com/3mCrnKF/xtimthumb-php-qsrc-https-P3-A-P2-F-P2-Fwww-209events-com-P2-Fassets-P2-Fuploads-P2-Fimages-P2-FBerli.webp"
         },
         {
             id: 4,
             title: "Beachside Sprint",
-            date: "Jul 5, 2025",
+            description: "Run alongside the stunning beaches of Sydney.",
+            registrationStart: "Jul 1, 2025",
+            registrationEnd: "Aug 30, 2025",
+            marathonDate: "Sep 5, 2025",
             location: "Sydney, Australia",
+            image: "https://i.ibb.co.com/Js3QtBR/images.jpg"
         },
         {
             id: 5,
             title: "Mountain Trek Marathon",
-            date: "Aug 20, 2025",
+            description: "Test your endurance with a trek through the majestic mountains of Nepal.",
+            registrationStart: "Sep 1, 2025",
+            registrationEnd: "Oct 31, 2025",
+            marathonDate: "Nov 20, 2025",
             location: "Kathmandu, Nepal",
+            image: "https://i.ibb.co.com/hBfQw35/4590058-2416600.jpg"
         },
         {
             id: 6,
             title: "Night Glow Run",
-            date: "Sep 15, 2025",
+            description: "Enjoy a mesmerizing night run under the glowing Tokyo skyline.",
+            registrationStart: "Oct 1, 2025",
+            registrationEnd: "Nov 31, 2025",
+            marathonDate: "Dec 15, 2025",
             location: "Tokyo, Japan",
+            image: "https://i.ibb.co.com/DC6CCt7/4730894-2460799.jpg"
         },
     ];
 
@@ -47,7 +72,7 @@ const UpcomingMarathons = () => {
                     Events
                 </h2>
                 <h2 className="text-3xl md:text-5xl font-extrabold text-center text-purple-800 mb-5">
-                    Upcoming Marathons Events
+                    Upcoming Marathon Events
                 </h2>
                 <div className="mb-12 md:mb-16 h-1 w-36 bg-[#591a6a] mx-auto"></div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -56,6 +81,12 @@ const UpcomingMarathons = () => {
                             key={marathon.id}
                             className="relative shadow-lg rounded-lg p-5 hover:scale-105 transition-transform duration-300 overflow-hidden border"
                         >
+                            {/* Image */}
+                            <img
+                                src={marathon.image}
+                                alt={marathon.title}
+                                className="w-full h-48 object-cover rounded-lg mb-4"
+                            />
                             {/* Overlay for "Upcoming" text */}
                             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-2xl font-bold opacity-0 hover:opacity-100 transition-opacity duration-300">
                                 Upcoming
@@ -63,15 +94,23 @@ const UpcomingMarathons = () => {
                             <h3 className="text-xl font-semibold mb-2">
                                 {marathon.title}
                             </h3>
-                            <p className="text-gray-500">
-                                <span className="font-bold">Date:</span> {marathon.date}
+                            <p className=" mb-2">
+                                {marathon.description}
                             </p>
-                            <p className="text-gray-500">
-                                <span className="font-bold">Location:</span> {marathon.location}
+                            <div className="flex items-center gap-1 mt-3 mb-5">
+                                <p className="text-blue-500"><IoLocationSharp /></p>
+                                {/* <p className="font-semibold">Location:</p> */}
+                                <p>{marathon.location}</p>
+                            </div>
+                            <p className="">
+                                <span className="font-semibold">Registration Start:</span> {marathon.registrationStart}
                             </p>
-                            <button className="mt-4 btn btn-sm bg-[#591a6a] text-white hover:bg-[#3f084d]">
-                                Learn More
-                            </button>
+                            <p className="">
+                                <span className="font-semibold">Registration End:</span> {marathon.registrationEnd}
+                            </p>
+                            <p className="mt-5">
+                                <span className="font-semibold">Marathon Date:</span> {marathon.marathonDate}
+                            </p>
                         </div>
                     ))}
                 </div>

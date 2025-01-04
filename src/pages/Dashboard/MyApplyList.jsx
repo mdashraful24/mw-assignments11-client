@@ -46,7 +46,7 @@ const MyApplyList = () => {
                             if (data.deletedCount > 0) {
                                 Swal.fire({
                                     title: "Deleted!",
-                                    text: "Your campaign has been deleted.",
+                                    text: "Your registration details has been deleted.",
                                     icon: "success"
                                 });
                                 const remaining = applyingRace.filter(myRace => myRace._id !== _id);
@@ -135,10 +135,10 @@ const MyApplyList = () => {
                         <thead>
                             <tr className="border-b border-gray-400 uppercase tracking-wider">
                                 <th className="p-4 text-center">No.</th>
-                                <th className="p-4 text-center">First Name</th>
-                                <th className="p-4 text-center">Last Name</th>
                                 <th className="p-4 text-center">Title</th>
                                 <th className="p-4 text-center">Marathon Start</th>
+                                <th className="p-4 text-center">First Name</th>
+                                <th className="p-4 text-center">Last Name</th>
                                 <th className="p-4 text-center">Number</th>
                                 <th className="p-4 text-center">Additional Info</th>
                                 <th className="p-4 text-center">Actions</th>
@@ -148,10 +148,10 @@ const MyApplyList = () => {
                             {applyingRace?.map((race, index) => (
                                 <tr key={race._id} className="border-b border-gray-400 hover:bg-stone-100 hover:text-slate-900">
                                     <td className="px-6 py-4 text-center">{index + 1}</td>
-                                    <td className="p-4 text-center">{race.firstName}</td>
-                                    <td className="p-4 text-center capitalize">{race.lastName}</td>
                                     <td className="p-4 text-center">{race.title}</td>
                                     <td className="p-4 text-center">{new Date(race.marathonStartDate).toLocaleDateString()}</td>
+                                    <td className="p-4 text-center">{race.firstName}</td>
+                                    <td className="p-4 text-center capitalize">{race.lastName}</td>
                                     <td className="p-4 text-center">{race.number}</td>
                                     <td className="p-4 text-center">{race.additionalInfo}</td>
                                     <td className="p-4 text-center">
@@ -194,7 +194,7 @@ const MyApplyList = () => {
                                     type="email"
                                     value={user.email}
                                     readOnly
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-md cursor-not-allowed"
                                 />
                             </div>
                             <div className="mb-4">
@@ -205,7 +205,7 @@ const MyApplyList = () => {
                                     type="text"
                                     value={selectedRace?.title}
                                     readOnly
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-md cursor-not-allowed"
                                 />
                             </div>
                             <div className="mb-4">
@@ -216,7 +216,7 @@ const MyApplyList = () => {
                                     type="text"
                                     value={new Date(selectedRace?.marathonStartDate).toLocaleDateString()}
                                     readOnly
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-md cursor-not-allowed"
                                 />
                             </div>
                             <div className="mb-4">
