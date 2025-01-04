@@ -1,9 +1,13 @@
-# Marathon Management System
+# Assignment Category: 06
+
+# Project Theme: Marathon Management System
+
+# Website Name: RaceTrackers
 
 [Live Site](https://marathonproject-2a4f2.web.app/)
 
 ## About
-The **Marathon Management System** is a comprehensive platform designed to simplify the organization and participation process for marathon events. By connecting event organizers with participants, the system fosters seamless communication and efficient management of events.
+The **RaceTrackers** is a comprehensive platform designed to simplify the organization and participation process for marathon events. By connecting event organizers with participants, the system fosters seamless communication and efficient management of events.
 
 ## Features
 
@@ -15,7 +19,7 @@ The **Marathon Management System** is a comprehensive platform designed to simpl
 
 ## Technologies Used
 
-- **Frontend:** React.js, Tailwind CSS
+- **Frontend:** React.js, Tailwind CSS, DaisyUI
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB
 - **Hosting:** Firebase
