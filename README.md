@@ -1,6 +1,6 @@
-# Assignment Category: 06
+Assignment Category: 06
 
-# Project Theme: Marathon Management System
+Project Theme: Marathon Management System
 
 # Website Name: RaceTrackers
 
