@@ -20,7 +20,12 @@ The **RaceTrackers** is a comprehensive platform designed to simplify the organi
 ## Technologies Used
 
 - **Frontend:** React.js, Tailwind CSS, DaisyUI
-- **Backend:** Node.js, Express.js
+- **Backend:**
+            - Node.js
+            - Express.js
+            - MongoDB (with Atlas)
+            - JWT for authentication
+            - dotenv for configuration
 - **Database:** MongoDB
 - **Hosting:** Firebase
 - **Authentication:** Firebase Authentication
