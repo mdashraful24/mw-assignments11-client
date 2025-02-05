@@ -34,8 +34,8 @@
 | **Frontend**       | React, React Router, Tailwind CSS, DaisyUI               |
 | **Backend**        | Node.js, Express.js, JWT-token, Dotenv                                  |
 | **Database**       | MongoDB (Atlas)                                       |
+| **Authentication**        | Firebase Authentication                                  |
 | **Hosting**        | Firebase (Frontend), Vercel (Backend)                                         |
-
 ---
 
 ## 🛠 Installation
