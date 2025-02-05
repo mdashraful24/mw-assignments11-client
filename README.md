@@ -93,8 +93,7 @@ VITE_appId=YOUR_FIREBASE_APP_ID
 ## 🌍 Live Demo & Repository
 
 - **Live Site:**  
-  • [The RaceTrackers](https://your-live-site.com/)  
-- **GitHub Repository:** [GitHub Link](https://github.com/yourusername/racetrackers)
+  • [The RaceTrackers](https://your-live-site.com/)
 
 ---
 
