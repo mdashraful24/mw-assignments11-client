@@ -5,7 +5,7 @@
 **The RaceTrackers** is a comprehensive platform designed to simplify the organization and participation process for marathon events. By connecting event organizers with participants, the system fosters seamless communication and efficient management of events.
 
 🚀 **Live Demo:**  
-• [The RaceTrackers](https://marathonproject-2a4f2.web.app/)  
+• [RaceTrackers](https://marathonproject-2a4f2.web.app/)  
 
 ## 📖 Table of Contents
 
@@ -93,7 +93,7 @@ VITE_appId=YOUR_FIREBASE_APP_ID
 ## 🌍 Live Demo & Repository
 
 - **Live Site:**  
-  • [The RaceTrackers](https://your-live-site.com/)
+  • [The RaceTrackers](https://marathonproject-2a4f2.web.app/)
 
 ---
 
